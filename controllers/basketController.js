@@ -1,3 +1,4 @@
+"use strict";
 const BaseController = require("./baseController");
 
 class BasketController extends BaseController {

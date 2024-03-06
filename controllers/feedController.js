@@ -1,3 +1,4 @@
+"use strict";
 const BaseController = require("./baseController");
 
 class FeedController extends BaseController {

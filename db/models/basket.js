@@ -42,6 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       allergens: DataTypes.TEXT,
       photo: DataTypes.TEXT,
       weightPerUnit: DataTypes.INTEGER,
+      status: DataTypes.BOOLEAN,
     },
     {
       sequelize,

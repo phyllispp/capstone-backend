@@ -7,6 +7,11 @@ class CategoryRouter {
   }
 
   routes() {
+    router.get(
+      "/:categoryId/sellers",
+      this.controller.getSellersByCategory.bind(this.controller)
+    );
+    router.get("/:basketId", this.controller.getBasket.bind(this.controller));
     return router;
   }
 }

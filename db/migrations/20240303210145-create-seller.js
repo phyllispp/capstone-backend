@@ -24,7 +24,7 @@ module.exports = {
       photo: {
         type: Sequelize.TEXT,
       },
-      categoryId: {
+      category_id: {
         type: Sequelize.INTEGER,
       },
       created_at: {

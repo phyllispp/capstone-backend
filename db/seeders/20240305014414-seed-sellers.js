@@ -12,7 +12,7 @@ module.exports = {
           address: "320 Des Voeux Rd Central, Sheung Wan, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.286595799897206, 114.1505988596977)"
+            "POINT(22.286595799897206 114.1505988596977)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -26,7 +26,7 @@ module.exports = {
           address: "29 Soy St, Mong Kok, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.316346506777904, 114.17186074836886)"
+            "POINT(22.316346506777904 114.17186074836886)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -40,7 +40,7 @@ module.exports = {
           address: "44 Hankow Rd, Tsim Sha Tsui, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.29764843810558, 114.17102850774651)"
+            "POINT(22.29764843810558 114.17102850774651)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -54,7 +54,7 @@ module.exports = {
           address: "G/F, 10A Sun Chun St, Tai Hang, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.27824998270117, 114.19230919229571)"
+            "POINT(22.27824998270117 114.19230919229571)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -68,7 +68,7 @@ module.exports = {
           address: "14 Tsun Yuen Street, Happy Valley, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.267577939328127, 114.18743919649953)"
+            "POINT(22.267577939328127 114.18743919649953)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -83,7 +83,7 @@ module.exports = {
             "Ocean Terminal, Harbour City, 3-27 Canton Road, Hong Kong Shop OT G63A, G/F, Tsim Sha Tsui, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.2954459984565, 114.1681499067452)"
+            "POINT(22.2954459984565 114.1681499067452)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -98,7 +98,7 @@ module.exports = {
             "Unit #B205 - B207, 18 Salisbury Rd, Tsim Sha Tsui, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.294681083182393, 114.17425337866803)"
+            "POINT(22.294681083182393 114.17425337866803)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -112,7 +112,7 @@ module.exports = {
           address: "Shop G63, 1 Discovery Bay Rd, Discovery Bay",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.296110367172762, 114.01689270999071)"
+            "POINT(22.296110367172762 114.01689270999071)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -126,7 +126,7 @@ module.exports = {
           address: "G/F No, 64 Sam Wo Rd, Tai Mei Tuk Tsuen",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.473212318782775, 114.23270344068678)"
+            "POINT(22.473212318782775 114.23270344068678)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -140,7 +140,7 @@ module.exports = {
           address: "G/F, U-c Court, 25 Stanley Market Rd, Stanley, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.219023151636403, 114.21160164232694)"
+            "POINT(22.219023151636403 114.21160164232694)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -154,7 +154,7 @@ module.exports = {
           address: "55 Tai Tsun St, Tai Kok Tsui, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.321577393258345, 114.16068971145489)"
+            "POINT(22.321577393258345 114.16068971145489)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -169,7 +169,7 @@ module.exports = {
             "5/F, Crawford House, 70 Queen's Road Central, Central, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.28264311985108, 114.15565563828004)"
+            "POINT(22.28264311985108 114.15565563828004)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -183,7 +183,7 @@ module.exports = {
           address: "Taikoo Shing, Tai Koo Shing Rd, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.28659474245864, 114.21698789778453)"
+            "POINT(22.28659474245864 114.21698789778453)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -197,7 +197,7 @@ module.exports = {
           address: "Hong Kong Disneyland Hotel, Lantau Island, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.307364452587176, 114.04385093208839)"
+            "POINT(22.307364452587176 114.04385093208839)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -211,7 +211,7 @@ module.exports = {
           address: "G/F, 45-55 Cadogan St, Kennedy Town, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.28200602781313, 114.12632996580777)"
+            "POINT(22.28200602781313 114.12632996580777)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -226,7 +226,7 @@ module.exports = {
             "Winsome House G/F, 154-158 Wing Lok St, Sheung Wan, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.287421518839896, 114.14917803743748)"
+            "POINT(22.287421518839896 114.14917803743748)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -241,7 +241,7 @@ module.exports = {
             "Shop E, G/F, De Fenwick 42-50 Lockhart Road, Wan Chai, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.27888281592374, 114.17051064305684)"
+            "POINT(22.27888281592374 114.17051064305684)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -256,7 +256,7 @@ module.exports = {
             "Shop F-I, G/F, Lockhart House, Block A, 440 Jaffe Road, Causeway Bay, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.280687019943688, 114.18136956441828)"
+            "POINT(22.280687019943688 114.18136956441828)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -270,7 +270,7 @@ module.exports = {
           address: "G/F, 77 Wellington St, Central, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.283824852769513, 114.15458814305686)"
+            "POINT(22.283824852769513 114.15458814305686)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -284,7 +284,7 @@ module.exports = {
           address: "47 Parkes Street, Jordan, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.3047961587404, 114.1705620239471)"
+            "POINT(22.3047961587404 114.1705620239471)"
           ),
           photo:
             "https://t4.ftcdn.net/jpg/02/75/70/03/360_F_275700347_09reCCwb7JBxTKiYQXsyri4riMKaHbj8.jpg",
@@ -299,7 +299,7 @@ module.exports = {
             "Shop No 8 B2, Langham Place, 8 Argyle St, Mong Kok, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.318632554896972, 114.16859839536527)"
+            "POINT(22.318632554896972 114.16859839536527)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -313,7 +313,7 @@ module.exports = {
           address: "Shop G20, 38-42 Fuk Chi St, Hung Hom, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.305609336822815, 114.18754398815446)"
+            "POINT(22.305609336822815 114.18754398815446)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -328,7 +328,7 @@ module.exports = {
             "B1, Harbour North Phase 2, 123 Java Road, North Point, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.292655273836967, 114.20094128098339)"
+            "POINT(22.292655273836967 114.20094128098339)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -343,7 +343,7 @@ module.exports = {
             "Shop 22-23, 1/F, Lantau Island, Caribbean Bazaar, 1 Kin Tung Rd, Tung Chung, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.291128306546614, 113.948735645787)"
+            "POINT(22.291128306546614 113.948735645787)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -358,7 +358,7 @@ module.exports = {
             "B1/F, Times Square, 1 Matheson Street, Causeway Bay, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.278235115303204, 114.18198615231711)"
+            "POINT(22.278235115303204 114.18198615231711)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -373,7 +373,7 @@ module.exports = {
             "Whampoa Garden Site 3 Block 3, 120 Baker St, Whampoa Garden",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.310603920643274, 114.1870275103607)"
+            "POINT(22.310603920643274 114.1870275103607)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -388,7 +388,7 @@ module.exports = {
             "B/F, Central Tower, 28 Queen's Rd Central, Central, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.28134315303115, 114.1568316371366)"
+            "POINT(22.28134315303115 114.1568316371366)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -402,7 +402,7 @@ module.exports = {
           address: "26 Jordan Rd, Jordan, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.30546720001806, 114.17060963109144)"
+            "POINT(22.30546720001806 114.17060963109144)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -416,7 +416,7 @@ module.exports = {
           address: "Sogo, 555 Hennessy Road, Causeway Bay, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.280453058464268, 114.18430950178345)"
+            "POINT(22.280453058464268 114.18430950178345)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -431,7 +431,7 @@ module.exports = {
             "LG 1, Two Pacific Place, 88 Queensway, Admiralty, Hong Kong",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(22.277792979854482, 114.1643597676633)"
+            "POINT(22.277792979854482 114.1643597676633)"
           ),
           photo:
             "https://cdn.dribbble.com/users/371199/screenshots/17237982/media/ee4ef1e8d7fd193aacfb85df9d284c1c.jpg?resize=400x300&vertical=center",
@@ -445,7 +445,7 @@ module.exports = {
           address: "481 Amsterdam Ave, New York, NY 10024",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(40.785465514075305, -73.97629833441108)"
+            "POINT(40.785465514075305 -73.97629833441108)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",
@@ -459,7 +459,7 @@ module.exports = {
           address: "157 Prince St, New York, NY 10012",
           location: Sequelize.fn(
             "ST_GeomFromText",
-            "POINT(40.72594222546786, -74.00114167504448)"
+            "POINT(40.72594222546786 -74.00114167504448)"
           ),
           photo:
             "https://www.creativefabrica.com/wp-content/uploads/2023/08/01/Bakery-logo-retro-concept-design-Graphics-75892620-1.jpg",

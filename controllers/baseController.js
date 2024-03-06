@@ -1,3 +1,4 @@
+"use strict";
 class BaseController {
   constructor(model) {
     this.model = model;

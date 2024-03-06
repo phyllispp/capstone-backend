@@ -1,58 +1,61 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('baskets', {
+    await queryInterface.createTable("baskets", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      sellerId: {
-        type: Sequelize.INTEGER
+      seller_id: {
+        type: Sequelize.INTEGER,
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-      originalPrice: {
-        type: Sequelize.INTEGER
+      original_price: {
+        type: Sequelize.INTEGER,
       },
-      discountedPrice: {
-        type: Sequelize.INTEGER
+      discounted_price: {
+        type: Sequelize.INTEGER,
       },
-      pickupStartTime: {
-        type: Sequelize.DATE
+      pickup_start_time: {
+        type: Sequelize.DATE,
       },
-      pickupEndTime: {
-        type: Sequelize.DATE
+      pickup_end_time: {
+        type: Sequelize.DATE,
       },
       stock: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       description: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       allergens: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       photo: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
-      weightPerUnit: {
-        type: Sequelize.INTEGER
+      weight_per_unit: {
+        type: Sequelize.INTEGER,
+      },
+      status: {
+        type: Sequelize.BOOLEAN,
       },
       created_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updated_at: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('baskets');
-  }
+    await queryInterface.dropTable("baskets");
+  },
 };

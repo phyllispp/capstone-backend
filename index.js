@@ -1,3 +1,4 @@
+"use strict";
 const express = require("express");
 require("dotenv").config();
 const PORT = process.env.PORT;
@@ -46,7 +47,8 @@ const categoryController = new CategoryController(
   category,
   seller,
   sellerLike,
-  sellerReview
+  sellerReview,
+  basket
 );
 const orderController = new OrderController(order, orderedItem);
 const notificationController = new NotificationController(notification);
