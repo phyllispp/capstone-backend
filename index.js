@@ -53,7 +53,7 @@ const categoryController = new CategoryController(
 const orderController = new OrderController(order, orderedItem);
 const notificationController = new NotificationController(notification);
 const feedController = new FeedController(feed, feedLike, feedReview);
-const cartController = new CartController(currentCart);
+const cartController = new CartController(currentCart, basket);
 const basketController = new BasketController(basket);
 
 //initializing routers

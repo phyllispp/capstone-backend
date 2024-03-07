@@ -7,6 +7,8 @@ class CartRouter {
   }
 
   routes() {
+    router.get("/:userId", this.controller.getAll.bind(this.controller));
+    router.post("/", this.controller.insertOne.bind(this.controller));
     return router;
   }
 }

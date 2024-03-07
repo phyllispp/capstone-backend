@@ -16,9 +16,6 @@ module.exports = (sequelize, DataTypes) => {
         through: models.orderedItem,
       });
       this.belongsToMany(models.user, {
-        through: models.currentCart,
-      });
-      this.belongsToMany(models.user, {
         through: models.notification,
       });
     }
