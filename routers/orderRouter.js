@@ -7,6 +7,11 @@ class OrderRouter {
   }
 
   routes() {
+    router.get("/:userId", this.controller.getOrders.bind(this.controller));
+    router.get(
+      "/latest/:userId",
+      this.controller.getLatestOrder.bind(this.controller)
+    );
     return router;
   }
 }

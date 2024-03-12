@@ -25,6 +25,7 @@ const BasketController = require("./controllers/basketController.js");
 
 //importing DB
 const db = require("./db/models/index.js");
+
 const {
   basket,
   category,
@@ -50,7 +51,7 @@ const categoryController = new CategoryController(
   sellerReview,
   basket
 );
-const orderController = new OrderController(order, orderedItem);
+const orderController = new OrderController(order, orderedItem, basket, seller);
 const notificationController = new NotificationController(notification);
 const feedController = new FeedController(feed, feedLike, feedReview);
 const cartController = new CartController(currentCart, basket);
@@ -80,3 +81,116 @@ app.use("/basket", basketRouter);
 app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}!`);
 });
+
+//Set Up Stripe Checkout
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const CLIENT_URL = process.env.CLIENT_URL;
+
+app.post("/pay", async (req, res) => {
+  const { buyerId, totalPrice } = req.body;
+  const price = totalPrice * 100;
+  console.log(totalPrice);
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        price_data: {
+          currency: "hkd",
+          unit_amount: price,
+          product_data: { name: "Food Basket" },
+        },
+        quantity: 1,
+      },
+    ],
+    mode: "payment",
+    success_url: `${CLIENT_URL}/order`,
+    cancel_url: `${CLIENT_URL}/cart`,
+    metadata: {
+      buyerId: buyerId.toString(),
+      totalPrice: totalPrice.toString(),
+    },
+  });
+  console.log(session);
+  // createOrder(buyerId, totalPrice);
+  return res.json({ url: session.url });
+});
+
+//Use Stripe Webhooks to Listen for Payment Success
+app.post(
+  "/webhook",
+  express.json({ type: "application/json" }),
+  (request, response) => {
+    console.log("Webhook route hit");
+    const event = request.body;
+    console.log("Event received:", event);
+
+    if (event.type === "checkout.session.completed") {
+      const session = event.data.object;
+      const buyerId = session.metadata.buyerId;
+      const totalPrice = parseFloat(session.metadata.totalPrice);
+
+      createOrder(buyerId, totalPrice);
+    }
+    response.json({ received: true });
+  }
+);
+
+const createOrder = async (buyerId, totalPrice) => {
+  let transaction;
+  console.log("I'm creating an order");
+  try {
+    transaction = await db.sequelize.transaction();
+
+    const cartItems = await currentCart.findAll(
+      {
+        where: { buyerId: buyerId },
+      },
+      { transaction }
+    );
+
+    const newOrder = await order.create(
+      {
+        userId: buyerId,
+        totalPrice: totalPrice,
+      },
+      { transaction }
+    );
+    console.log("cartItems", cartItems);
+
+    for (const item of cartItems) {
+      await orderedItem.create(
+        {
+          orderId: newOrder.id,
+          basketId: item.basketId,
+          stock: item.stock,
+        },
+        { transaction }
+      );
+
+      const updatedBasket = await basket.findByPk(item.basketId, {
+        transaction,
+      });
+      if (updatedBasket && updatedBasket.stock >= item.stock) {
+        await updatedBasket.update(
+          { stock: updatedBasket.stock - item.stock },
+          { transaction }
+        );
+      } else {
+        throw new Error(`Insufficient stock for basketId: ${item.basketId}`);
+      }
+    }
+
+    await currentCart.destroy(
+      {
+        where: { buyerId: buyerId },
+      },
+      { transaction }
+    );
+
+    await transaction.commit();
+    console.log("Order created and cart cleared for buyerId:", buyerId);
+  } catch (error) {
+    if (transaction) await transaction.rollback();
+    console.error("Transaction Error:", error);
+    console.log(error.message);
+  }
+};

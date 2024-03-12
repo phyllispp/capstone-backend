@@ -3,13 +3,13 @@ const BaseController = require("./baseController");
 
 class CategoryController extends BaseController {
   constructor(
-    categoryModel,
+    model,
     sellerModel,
     sellerLikeModel,
     sellerReviewModel,
     basketModel
   ) {
-    super(categoryModel);
+    super(model);
     this.sellerModel = sellerModel;
     this.sellerLikeModel = sellerLikeModel;
     this.sellerReviewModel = sellerReviewModel;
@@ -20,7 +20,7 @@ class CategoryController extends BaseController {
     try {
       const categoryId = req.params.categoryId;
       const sellerswithBaskets = await this.sellerModel.findAll({
-        where: { category_id: categoryId },
+        where: { categoryId: categoryId },
         include: [{ model: this.basketModel }],
       });
       if (!sellerswithBaskets.length) {

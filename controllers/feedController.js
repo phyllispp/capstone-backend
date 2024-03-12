@@ -2,8 +2,8 @@
 const BaseController = require("./baseController");
 
 class FeedController extends BaseController {
-  constructor(feedmodel, feedLikeModel, feedReviewModel) {
-    super(feedmodel);
+  constructor(model, feedLikeModel, feedReviewModel) {
+    super(model);
     this.feedLikeModel = feedLikeModel;
     this.feedReviewModel = feedReviewModel;
   }

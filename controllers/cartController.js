@@ -11,7 +11,7 @@ class CartController extends BaseController {
     try {
       const userId = req.params.userId;
       const cartItems = await this.model.findAll({
-        where: { buyer_id: userId },
+        where: { buyerId: userId },
         include: [{ model: this.basketModel }],
       });
       return res.json(cartItems);
@@ -22,31 +22,34 @@ class CartController extends BaseController {
 
   async insertOne(req, res) {
     try {
-      const { buyer_id, basket_id, stock } = req.body;
-      console.log(buyer_id, basket_id, stock);
+      const { buyerId, basketId, stock } = req.body;
+      console.log(buyerId, basketId, stock);
       const currentCart = await this.model.findAll({
-        where: { buyer_id: buyer_id },
+        where: { buyerId: buyerId },
         include: [{ model: this.basketModel, attributes: ["seller_id"] }],
       });
       console.log(currentCart);
       console.log("running after initial get");
       if (currentCart.length === 0) {
         const newItem = await this.model.create({
-          buyer_id: buyer_id,
-          basket_id: basket_id,
+          buyerId: buyerId,
+          basketId: basketId,
           stock: stock,
         });
         console.log(newItem);
         return res.json(newItem);
       } else {
         const newBasket = await this.basketModel.findOne({
-          where: { id: basket_id },
-          attributes: ["seller_id"],
+          where: { id: basketId },
+          attributes: ["sellerId"],
         });
-        if (newBasket.seller_id === currentCart[0].basket.seller_id) {
+        console.log("new basket", newBasket);
+        console.log("currentCart", currentCart);
+        console.log(currentCart[0].basket);
+        if (newBasket.sellerId === currentCart[0].basket.sellerId) {
           const newItem = await this.model.create({
-            buyer_id,
-            basket_id,
+            buyerId,
+            basketId,
             stock,
           });
           return res.json(newItem);
@@ -58,6 +61,7 @@ class CartController extends BaseController {
         }
       }
     } catch (error) {
+      console.log(error);
       return res.status(400).json({ error: true, msg: error.message });
     }
   }
