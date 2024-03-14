@@ -53,7 +53,7 @@ const categoryController = new CategoryController(
 );
 const orderController = new OrderController(order, orderedItem, basket, seller);
 const notificationController = new NotificationController(notification);
-const feedController = new FeedController(feed, feedLike, feedReview);
+const feedController = new FeedController(feed, feedLike, feedReview, seller);
 const cartController = new CartController(currentCart, basket);
 const basketController = new BasketController(basket);
 
