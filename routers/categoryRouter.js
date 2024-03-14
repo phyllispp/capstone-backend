@@ -12,6 +12,10 @@ class CategoryRouter {
       this.controller.getSellersByCategory.bind(this.controller)
     );
     router.get("/:basketId", this.controller.getBasket.bind(this.controller));
+    router.get(
+      "/seller/:sellerId",
+      this.controller.getSeller.bind(this.controller)
+    );
     return router;
   }
 }

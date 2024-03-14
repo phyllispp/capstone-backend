@@ -66,6 +66,19 @@ class CategoryController extends BaseController {
       return res.status(400).json({ error: true, message: error.message });
     }
   }
+
+  async getSeller(req, res) {
+    try {
+      const sellerId = req.params.sellerId;
+      const seller = await this.sellerModel.findAll({
+        where: { id: sellerId },
+      });
+
+      return res.json(seller);
+    } catch (error) {
+      return res.status(400).json({ error: true, message: error.message });
+    }
+  }
 }
 
 module.exports = CategoryController;
