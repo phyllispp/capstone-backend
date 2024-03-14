@@ -8,7 +8,7 @@ class FeedRouter {
 
   routes() {
     router.get("/", this.controller.getAll.bind(this.controller));
-
+    router.post("/like", this.controller.likeOne.bind(this.controller));
     return router;
   }
 }
