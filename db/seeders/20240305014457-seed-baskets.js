@@ -16,7 +16,7 @@ module.exports = {
           stock: 5,
           description:
             "Today's unsold sourdough, perfect for sandwiches or toast",
-          allergens: "Contains gluten”",
+          allergens: "Contains gluten",
           photo:
             "https://homesteadandchill.com/wp-content/uploads/2020/03/gluten-free-sourdough-starter-recipe-bread-loaf.jpeg",
           weight_per_unit: 800,
@@ -98,7 +98,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 6,
+          seller_id: 11,
           title: "Pizza",
           original_price: 30,
           discounted_price: 10,
@@ -117,7 +117,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 7,
+          seller_id: 12,
           title: "Surprise Bag",
           original_price: 20,
           discounted_price: 5,
@@ -136,7 +136,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 8,
+          seller_id: 13,
           title: "Surprise Bag",
           original_price: 40,
           discounted_price: 12,
@@ -155,7 +155,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 9,
+          seller_id: 14,
           title: "Dim Sum Evening Special",
           original_price: 30,
           discounted_price: 10,
@@ -173,7 +173,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 10,
+          seller_id: 15,
           title: "Surprise Bag",
           original_price: 20,
           discounted_price: 5,
@@ -192,7 +192,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 11,
+          seller_id: 20,
           title: "Dairy Delights",
           original_price: 20,
           discounted_price: 5,
@@ -210,7 +210,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 12,
+          seller_id: 21,
           title: "Fresh Fish",
           original_price: 18,
           discounted_price: 6,
@@ -228,7 +228,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 13,
+          seller_id: 22,
           title: "Surprise Bag”",
           original_price: 25,
           discounted_price: 8,
@@ -247,7 +247,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 14,
+          seller_id: 23,
           title: "Surprise Bag",
           original_price: 25,
           discounted_price: 8,
@@ -266,7 +266,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 15,
+          seller_id: 7,
           title: "Surprise Bag",
           original_price: 25,
           discounted_price: 8,
@@ -285,7 +285,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 16,
+          seller_id: 8,
           title: "Croissant",
           original_price: 6,
           discounted_price: 4,
@@ -303,7 +303,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 17,
+          seller_id: 15,
           title: "Veggie Box",
           original_price: 23,
           discounted_price: 11,
@@ -320,7 +320,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 18,
+          seller_id: 16,
           title: "Famer's Fresh Meat Selection",
           original_price: 30,
           discounted_price: 23,
@@ -338,7 +338,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 19,
+          seller_id: 17,
           title: "Salad Box",
           original_price: 9,
           discounted_price: 6,
@@ -356,7 +356,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 20,
+          seller_id: 18,
           title: "Surprise Bag",
           original_price: 11,
           discounted_price: 5,

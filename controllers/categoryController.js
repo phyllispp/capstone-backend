@@ -1,4 +1,6 @@
 "use strict";
+const db = require("../db/models/index");
+
 const BaseController = require("./baseController");
 
 class CategoryController extends BaseController {
@@ -18,18 +20,35 @@ class CategoryController extends BaseController {
 
   async getSellersByCategory(req, res) {
     try {
+      const { Sequelize } = db;
       const categoryId = req.params.categoryId;
-      const sellerswithBaskets = await this.sellerModel.findAll({
+      const userLatitude = 22.317330117054336;
+      const userLongitude = 114.18860305272894;
+
+      const sellers = await this.sellerModel.findAll({
+        attributes: {
+          include: [
+            [
+              Sequelize.literal(
+                `ST_DistanceSphere(
+                location,
+                ST_SetSRID(ST_MakePoint(${userLongitude}, ${userLatitude}), 4326)::geometry
+              )`
+              ),
+              "distance",
+            ],
+          ],
+        },
         where: { categoryId: categoryId },
-        include: [{ model: this.basketModel }],
+        include: [
+          {
+            model: this.basketModel,
+            as: "baskets",
+            required: true,
+          },
+        ],
       });
-      if (!sellerswithBaskets.length) {
-        return res.status(404).json({
-          error: true,
-          message: "No sellers found for the given category",
-        });
-      }
-      return res.json(sellerswithBaskets);
+      return res.json(sellers);
     } catch (error) {
       return res.status(400).json({ error: true, message: error.message });
     }
