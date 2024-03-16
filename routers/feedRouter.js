@@ -8,7 +8,13 @@ class FeedRouter {
 
   routes() {
     router.get("/", this.controller.getAll.bind(this.controller));
+    router.get("/:userId", this.controller.getLikes.bind(this.controller));
     router.post("/like", this.controller.likeOne.bind(this.controller));
+    router.post("/comment", this.controller.commentOne.bind(this.controller));
+    router.put(
+      "/comment/delete",
+      this.controller.deleteComment.bind(this.controller)
+    );
     return router;
   }
 }
