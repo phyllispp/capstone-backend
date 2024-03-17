@@ -4,6 +4,12 @@ require("dotenv").config();
 const PORT = process.env.PORT;
 const app = express();
 const cors = require("cors");
+const { auth } = require("express-oauth2-jwt-bearer");
+
+const checkJwt = auth({
+  audience: process.env.JWT_AUDIENCE,
+  issuerBaseURL: process.env.JWT_ISSUER_BASE_URL,
+});
 
 //importing routers
 const UserRouter = require("./routers/userRouter.js");
@@ -24,6 +30,7 @@ const CartController = require("./controllers/cartController.js");
 const BasketController = require("./controllers/basketController.js");
 
 //importing DB
+const { Sequelize } = require("sequelize");
 const db = require("./db/models/index.js");
 
 const {
@@ -82,6 +89,31 @@ app.listen(PORT, () => {
   console.log(`Express app listening on port ${PORT}!`);
 });
 
+//check baskets for expired or out of stock items
+const checkBaskets = async () => {
+  try {
+    const currentTime = new Date();
+    const basketsToDelete = await basket.findAll({
+      where: {
+        [Sequelize.Op.or]: [
+          {
+            pickup_start_time: { [Sequelize.Op.lte]: currentTime },
+          },
+          {
+            stock: { [Sequelize.Op.lt]: 1 },
+          },
+        ],
+      },
+    });
+    console.log("tobe deleted", basketsToDelete);
+    for (const basket of basketsToDelete) {
+      await basket.destroy();
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //Set Up Stripe Checkout
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const CLIENT_URL = process.env.CLIENT_URL;
@@ -129,6 +161,7 @@ app.post(
       const totalPrice = parseFloat(session.metadata.totalPrice);
 
       createOrder(buyerId, totalPrice);
+      checkBaskets();
     }
     response.json({ received: true });
   }

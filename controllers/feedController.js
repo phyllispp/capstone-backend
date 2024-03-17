@@ -1,6 +1,5 @@
 ("use strict");
 
-const user = require("../db/models/user");
 const BaseController = require("./baseController");
 
 class FeedController extends BaseController {

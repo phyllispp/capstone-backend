@@ -65,5 +65,18 @@ class CartController extends BaseController {
       return res.status(400).json({ error: true, msg: error.message });
     }
   }
+  async deleteOne(req, res) {
+    try {
+      const { basketId } = req.params;
+      console.log(basketId);
+      await this.model.destroy({ where: { basketId: basketId } });
+      return res
+        .status(200)
+        .json({ success: true, msg: "Item deleted successfully." });
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({ error: true, msg: error.message });
+    }
+  }
 }
 module.exports = CartController;
