@@ -26,7 +26,7 @@ class CartController extends BaseController {
       console.log(buyerId, basketId, stock);
       const currentCart = await this.model.findAll({
         where: { buyerId: buyerId },
-        include: [{ model: this.basketModel, attributes: ["seller_id"] }],
+        include: [{ model: this.basketModel, attributes: ["sellerId"] }],
       });
       console.log(currentCart);
       console.log("running after initial get");
@@ -56,7 +56,7 @@ class CartController extends BaseController {
         } else {
           return res.status(400).json({
             error: true,
-            msg: "Cannot add item from the same seller to the cart. Please create a new order.",
+            msg: "Cannot add item from a different seller to the cart. ",
           });
         }
       }

@@ -10,17 +10,17 @@ class CartRouter {
   routes() {
     router.get(
       "/:userId",
-      // this.checkJwt,
+      this.checkJwt,
       this.controller.getAll.bind(this.controller)
     );
     router.post(
       "/",
-      // this.checkJwt,
+      this.checkJwt,
       this.controller.insertOne.bind(this.controller)
     );
     router.put(
       "/delete/:basketId",
-      // this.checkJwt,
+      this.checkJwt,
       this.controller.deleteOne.bind(this.controller)
     );
     return router;

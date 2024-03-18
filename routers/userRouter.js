@@ -7,6 +7,7 @@ class UserRouter {
   }
 
   routes() {
+    router.get("/:userEmail", this.controller.getOne.bind(this.controller));
     return router;
   }
 }
