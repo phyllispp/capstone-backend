@@ -67,12 +67,12 @@ const basketController = new BasketController(basket);
 //initializing routers
 const userRouter = new UserRouter(userController).routes();
 const categoryRouter = new CategoryRouter(categoryController).routes();
-const orderRouter = new OrderRouter(orderController).routes();
+const orderRouter = new OrderRouter(orderController, checkJwt).routes();
 const notificationRouter = new NotificationRouter(
   notificationController
 ).routes();
-const feedRouter = new FeedRouter(feedController).routes();
-const cartRouter = new CartRouter(cartController).routes();
+const feedRouter = new FeedRouter(feedController, checkJwt).routes();
+const cartRouter = new CartRouter(cartController, checkJwt).routes();
 const basketRouter = new BasketRouter(basketController).routes();
 
 app.use(cors());
@@ -105,7 +105,6 @@ const checkBaskets = async () => {
         ],
       },
     });
-    console.log("tobe deleted", basketsToDelete);
     for (const basket of basketsToDelete) {
       await basket.destroy();
     }
@@ -113,6 +112,7 @@ const checkBaskets = async () => {
     console.log(error);
   }
 };
+setInterval(checkBaskets, 30000);
 
 //Set Up Stripe Checkout
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);

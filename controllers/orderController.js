@@ -11,8 +11,9 @@ class OrderController extends BaseController {
   async getOrders(req, res) {
     try {
       const userId = req.params.userId;
+      console.log(userId);
       const orders = await this.model.findAll({
-        where: { user_id: userId },
+        where: { userId: userId },
         include: [
           {
             model: this.orderedItemModel,
@@ -49,8 +50,9 @@ class OrderController extends BaseController {
   async getLatestOrder(req, res) {
     try {
       const userId = req.params.userId;
+      console.log("userId", userId);
       const order = await this.model.findOne({
-        where: { user_id: userId },
+        where: { userId: userId },
         order: [["createdAt", "DESC"]],
         include: [
           {

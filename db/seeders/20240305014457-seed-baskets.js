@@ -91,7 +91,7 @@ module.exports = {
             "A selection of today's unsold croissants, danishes, and muffins",
           allergens: "Contains gluten, dairy",
           photo:
-            "https://www.napoleonsbakery.com/wp-content/uploads/2023/07/Napoleons-Bakery-Donuts-Pastries-scaled.jpg”",
+            "https://www.napoleonsbakery.com/wp-content/uploads/2023/07/Napoleons-Bakery-Donuts-Pastries-scaled.jpg",
           weight_per_unit: 2000,
           status: true,
           created_at: new Date(),
