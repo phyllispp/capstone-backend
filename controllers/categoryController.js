@@ -22,8 +22,9 @@ class CategoryController extends BaseController {
     try {
       const { Sequelize } = db;
       const categoryId = req.params.categoryId;
-      const userLatitude = 22.317330117054336;
-      const userLongitude = 114.18860305272894;
+      const userLatitude = parseFloat(req.query.latitude); // Get latitude from query parameters
+      const userLongitude = parseFloat(req.query.longitude);
+      console.log("userLatitude", userLatitude);
 
       const sellers = await this.sellerModel.findAll({
         attributes: {
@@ -45,6 +46,7 @@ class CategoryController extends BaseController {
             model: this.basketModel,
             as: "baskets",
             required: true,
+            where: { status: true },
           },
         ],
       });
@@ -75,6 +77,49 @@ class CategoryController extends BaseController {
       });
 
       return res.json(seller);
+    } catch (error) {
+      return res.status(400).json({ error: true, message: error.message });
+    }
+  }
+
+  async commentOne(req, res) {
+    try {
+      const { reviewText } = req.body;
+      const { sellerId, userId } = req.params;
+      console.log("review", reviewText);
+
+      const comment = await this.sellerReviewModel.create({
+        sellerId: sellerId,
+        userId: userId,
+        review: reviewText,
+      });
+      return res.json(comment);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({ error: true, msg: error.message });
+    }
+  }
+
+  async getReviews(req, res) {
+    try {
+      const { sellerId } = req.params;
+      const reviews = await this.sellerReviewModel.findAll({
+        where: { sellerId: sellerId },
+      });
+
+      return res.json(reviews);
+    } catch (error) {
+      return res.status(400).json({ error: true, message: error.message });
+    }
+  }
+  async deleteReview(req, res) {
+    try {
+      const { reviewId } = req.params;
+      const review = await this.sellerReviewModel.destroy({
+        where: { id: reviewId },
+      });
+
+      return res.json(review);
     } catch (error) {
       return res.status(400).json({ error: true, message: error.message });
     }

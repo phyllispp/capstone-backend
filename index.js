@@ -93,7 +93,7 @@ app.listen(PORT, () => {
 const checkBaskets = async () => {
   try {
     const currentTime = new Date();
-    const basketsToDelete = await basket.findAll({
+    const basketsToUpdate = await basket.findAll({
       where: {
         [Sequelize.Op.or]: [
           {
@@ -105,8 +105,8 @@ const checkBaskets = async () => {
         ],
       },
     });
-    for (const basket of basketsToDelete) {
-      await basket.destroy();
+    for (const basket of basketsToUpdate) {
+      await basket.update({ status: false });
     }
   } catch (error) {
     console.log(error);
