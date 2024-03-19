@@ -10,12 +10,12 @@ class OrderRouter {
   routes() {
     router.get(
       "/:userId",
-
+      this.checkJwt,
       this.controller.getOrders.bind(this.controller)
     );
     router.get(
       "/latest/:userId",
-
+      this.checkJwt,
       this.controller.getLatestOrder.bind(this.controller)
     );
     return router;

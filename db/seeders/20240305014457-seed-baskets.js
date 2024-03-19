@@ -13,7 +13,7 @@ module.exports = {
           discounted_price: 10,
           pickup_start_time: "2024-07-30 18:00:00",
           pickup_end_time: "2024-07-30 20:00:00",
-          stock: 1,
+          stock: 10,
           description:
             "Today's unsold sourdough, perfect for sandwiches or toast",
           allergens: "Contains gluten",
@@ -25,13 +25,13 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 2,
+          seller_id: 1,
           title: "Scones",
           original_price: 10,
           discounted_price: 5,
           pickup_start_time: "2024-07-30 18:00:00",
           pickup_end_time: "2024-07-30 20:00:00",
-          stock: 2,
+          stock: 10,
           description:
             "A mix of this morning's leftover cheese and blueberry scones",
           allergens: "Contains gluten, dairy",
@@ -49,7 +49,7 @@ module.exports = {
           discounted_price: 6,
           pickup_start_time: "2024-07-30 18:00:00",
           pickup_end_time: "2024-07-30 20:00:00",
-          stock: 5,
+          stock: 1,
           description:
             "May contain an assortment of sandwiches, pastries, and/or other items",
           allergens:
@@ -62,7 +62,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 4,
+          seller_id: 31,
           title: "Assorted Pastry Clear-Out",
           original_price: 40,
           discounted_price: 15,
@@ -80,7 +80,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          seller_id: 5,
+          seller_id: 32,
           title: "Assorted Pastry Clear-Out",
           original_price: 40,
           discounted_price: 15,
@@ -142,7 +142,7 @@ module.exports = {
           discounted_price: 12,
           pickup_start_time: "2024-07-30 17:00:00",
           pickup_end_time: "2024-07-30 19:00:00",
-          stock: 1,
+          stock: 10,
           description:
             "Delicious American food in a bag, you’ll find from BBQ ribs to burgers",
           allergens:
@@ -216,7 +216,7 @@ module.exports = {
           discounted_price: 6,
           pickup_start_time: "2024-07-30 17:00:00",
           pickup_end_time: "2024-07-30 19:00:00",
-          stock: 3,
+          stock: 20,
           description:
             "This bag will usually contain raw fish, seafood, and/or other surprises. Enjoy!",
           allergens: "Seafood",
@@ -326,7 +326,7 @@ module.exports = {
           discounted_price: 23,
           pickup_start_time: "2024-07-30 18:00:00",
           pickup_end_time: "2024-07-30 20:00:00",
-          stock: 3,
+          stock: 20,
           description:
             "Savor the finest quality cuts of meat from our carefully curated selection, offering a flavorful range that will satisfy even the most discerning carnivores.",
           allergens: "Contains meat",
@@ -362,7 +362,7 @@ module.exports = {
           discounted_price: 5,
           pickup_start_time: "2024-07-30 17:00:00",
           pickup_end_time: "2024-07-30 19:00:00",
-          stock: 1,
+          stock: 10,
           description:
             "A surprise bag will be filled with the delicious food that the store has left at the end of the day",
           allergens:

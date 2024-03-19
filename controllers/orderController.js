@@ -11,7 +11,6 @@ class OrderController extends BaseController {
   async getOrders(req, res) {
     try {
       const userId = req.params.userId;
-      console.log(userId);
       const orders = await this.model.findAll({
         where: { userId: userId },
         include: [
@@ -40,7 +39,7 @@ class OrderController extends BaseController {
         ],
       });
 
-      return res.json(orders);
+      return res.json({ orders });
     } catch (error) {
       console.error(error);
       return res.status(400).json({ error: true, message: error.message });
