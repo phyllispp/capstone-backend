@@ -121,7 +121,6 @@ const CLIENT_URL = process.env.CLIENT_URL;
 app.post("/pay", async (req, res) => {
   const { buyerId, totalPrice } = req.body;
   const price = totalPrice * 100;
-  console.log(totalPrice);
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
@@ -141,7 +140,6 @@ app.post("/pay", async (req, res) => {
       totalPrice: totalPrice.toString(),
     },
   });
-  console.log(session);
   // createOrder(buyerId, totalPrice);
   return res.json({ url: session.url });
 });
@@ -151,9 +149,7 @@ app.post(
   "/webhook",
   express.json({ type: "application/json" }),
   (request, response) => {
-    console.log("Webhook route hit");
     const event = request.body;
-    console.log("Event received:", event);
 
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
@@ -169,7 +165,6 @@ app.post(
 
 const createOrder = async (buyerId, totalPrice) => {
   let transaction;
-  console.log("I'm creating an order");
   try {
     transaction = await db.sequelize.transaction();
 
@@ -220,7 +215,6 @@ const createOrder = async (buyerId, totalPrice) => {
     );
 
     await transaction.commit();
-    console.log("Order created and cart cleared for buyerId:", buyerId);
   } catch (error) {
     if (transaction) await transaction.rollback();
     console.error("Transaction Error:", error);

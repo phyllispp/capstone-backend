@@ -11,9 +11,17 @@ module.exports = {
       },
       feed_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "seller",
+          key: "id",
+        },
       },
       user_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "user",
+          key: "id",
+        },
       },
       created_at: {
         allowNull: false,

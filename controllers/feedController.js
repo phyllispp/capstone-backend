@@ -80,7 +80,7 @@ class FeedController extends BaseController {
 
   async deleteComment(req, res) {
     try {
-      const { feedId, commentId } = req.body;
+      const { feedId, commentId } = req.params;
       console.log(commentId);
       await this.feedReviewModel.destroy({
         where: { id: commentId, feedId: feedId },

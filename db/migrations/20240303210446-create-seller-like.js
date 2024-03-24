@@ -11,9 +11,17 @@ module.exports = {
       },
       buyer_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "user",
+          key: "id",
+        },
       },
       seller_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "seller",
+          key: "id",
+        },
       },
 
       created_at: {

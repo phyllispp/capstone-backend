@@ -15,7 +15,6 @@ class OrderRouter {
     );
     router.get(
       "/latest/:userId",
-      this.checkJwt,
       this.controller.getLatestOrder.bind(this.controller)
     );
     return router;

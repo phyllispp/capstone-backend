@@ -20,8 +20,8 @@ class FeedRouter {
       this.checkJwt,
       this.controller.commentOne.bind(this.controller)
     );
-    router.put(
-      "/comment/delete",
+    router.delete(
+      "/:feedId/comment/:commentId/delete",
       this.checkJwt,
       this.controller.deleteComment.bind(this.controller)
     );
