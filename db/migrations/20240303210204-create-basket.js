@@ -11,6 +11,10 @@ module.exports = {
       },
       seller_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "seller",
+          key: "id",
+        },
       },
       title: {
         type: Sequelize.STRING,

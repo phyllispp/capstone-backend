@@ -11,9 +11,17 @@ module.exports = {
       },
       buyer_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "user",
+          key: "id",
+        },
       },
       basket_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "basket",
+          key: "id",
+        },
       },
       stock: {
         type: Sequelize.INTEGER,

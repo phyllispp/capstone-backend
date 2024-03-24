@@ -11,6 +11,10 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "user",
+          key: "id",
+        },
       },
       total_price: {
         type: Sequelize.INTEGER,
