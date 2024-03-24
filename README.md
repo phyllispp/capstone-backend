@@ -1,23 +1,62 @@
-Food Rescue
+# Food Rescue Backend
 
-This is the capstone project of Hongyu and Karen at Rocket Academy.
+## Introduction
 
-The inspiration to build this site came from Too Good To Go, an application in Europe and US that connects customers to restaurants and stores that have surplus unsold food. Our app is based in Hong Kong, with dummy seller data sourced from google map.
+This repository holds the backend code for the "Food Rescue" platform, a capstone project developed by Hongyu and Karen at Rocket Academy. The platform is inspired by "Too Good To Go" and aims to reduce food waste by connecting customers with restaurants and stores to purchase surplus unsold food. Focused on serving Hong Kong, the app features dummy seller data extrapolated from Google Maps.
 
-Please run the following commands:
+## Quick Start Guide
 
-`npm i`
+Before you begin, ensure you have Node.js and PostgreSQL installed on your system. This project uses Sequelize as the ORM and PostGIS for geographical data extensions.
 
-`npx sequelize db:create`
+### Prerequisites
 
-Then, run the following command in SQL query terminal:
+- Node.js (preferably the latest LTS version)
+- PostgreSQL (with PostGIS extension supported)
+- npm (Node Package Manager)
 
-`CREATE EXTENSION IF NOT EXISTS postgis; `
+### Setup Instructions
 
-Switch back to previous terminal and
+1. Clone the repository to your local machine.
 
-`npx sequelize db:migrate`
+2. Install the necessary npm packages:
 
-`npx sequelize db:seed:all`
+   ```bash
+   npm i
+   ```
 
-`npm start`
+3. Create the database with Sequelize:
+
+   ```bash
+   npx sequelize db:create
+   ```
+
+4. Open the SQL query terminal for PostgreSQL and enable the PostGIS extension:
+
+   ```sql
+   CREATE EXTENSION IF NOT EXISTS postgis;
+   ```
+
+5. Return to the initial terminal to run migrations and seed the database:
+
+   ```bash
+   npx sequelize db:migrate
+   npx sequelize db:seed:all
+   ```
+
+6. Start the backend server:
+
+   ```bash
+   npm start
+   ```
+
+## Usage
+
+Once the server is running, it will listen for incoming requests at the configured port. The API endpoints can be accessed through `localhost` or the designated host.
+
+## Contributing
+
+Contributions to the "Food Rescue" project are welcome. Please ensure to follow the existing code structure and adhere to the coding standards set for this project.
+
+---
+
+Thank you for being a part of our effort to create a more sustainable and waste-conscious community in Hong Kong.
