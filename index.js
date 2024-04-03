@@ -1,11 +1,10 @@
 "use strict";
 const express = require("express");
-require("dotenv").config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const app = express();
 const cors = require("cors");
 const { auth } = require("express-oauth2-jwt-bearer");
-
+require("dotenv").config();
 const checkJwt = auth({
   audience: process.env.JWT_AUDIENCE,
   issuerBaseURL: process.env.JWT_ISSUER_BASE_URL,
@@ -29,8 +28,34 @@ const FeedController = require("./controllers/feedController.js");
 const CartController = require("./controllers/cartController.js");
 const BasketController = require("./controllers/basketController.js");
 
-//importing DB
+//sequelize connection
+const env = process.env.NODE_ENV || "production";
 const { Sequelize } = require("sequelize");
+let sequelize;
+const config = require(__dirname + "/../../config/database.js")[env];
+
+require("dotenv").config();
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(
+    process.env.DATABASE,
+    process.env.USERNAME,
+    process.env.PASSWORD,
+    {
+      host: process.env.HOST,
+      dialect: process.env.DIALECT,
+    }
+  );
+} else if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+}
+//importing DB
 const db = require("./db/models/index.js");
 
 const {
