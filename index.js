@@ -1,11 +1,10 @@
 "use strict";
 const express = require("express");
-require("dotenv").config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const app = express();
 const cors = require("cors");
 const { auth } = require("express-oauth2-jwt-bearer");
-
+require("dotenv").config();
 const checkJwt = auth({
   audience: process.env.JWT_AUDIENCE,
   issuerBaseURL: process.env.JWT_ISSUER_BASE_URL,
@@ -29,7 +28,7 @@ const FeedController = require("./controllers/feedController.js");
 const CartController = require("./controllers/cartController.js");
 const BasketController = require("./controllers/basketController.js");
 
-//importing DB
+//sequelize connection
 const { Sequelize } = require("sequelize");
 const db = require("./db/models/index.js");
 
