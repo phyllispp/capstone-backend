@@ -29,33 +29,7 @@ const CartController = require("./controllers/cartController.js");
 const BasketController = require("./controllers/basketController.js");
 
 //sequelize connection
-const env = process.env.NODE_ENV || "production";
 const { Sequelize } = require("sequelize");
-let sequelize;
-const config = require(__dirname + "/../../config/database.js")[env];
-
-require("dotenv").config();
-if (process.env.DATABASE_URL) {
-  sequelize = new Sequelize(
-    process.env.DATABASE,
-    process.env.USERNAME,
-    process.env.PASSWORD,
-    {
-      host: process.env.HOST,
-      dialect: process.env.DIALECT,
-    }
-  );
-} else if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
-//importing DB
 const db = require("./db/models/index.js");
 
 const {
